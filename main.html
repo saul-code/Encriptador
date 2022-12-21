@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lan="es">
+    <link rel="stylesheet" href="style.css">
+    <title>Encriptador</title>
+    <head><img id="logo" src="fotos/logo.svg.png"></head>
+
+    <h1 id = "encabezado">Encriptador</h1>
+    <input id="texto" type="text" placeholder="Ingrese el texto aqui">
+    <br/>
+    <body>
+        <button id="encode">Encriptar</button>
+        <button id="decode">Desencriptar</button>
+    </body>
+
+    <script>
+        var mA = [[1,0,0],[2,1,0],[1,1,1]];
+        var mB = [[6],[14],[14]];
+        
+        function multiply(a, b) {
+            var aNumRows = a.length, aNumCols = a[0].length,bNumRows = b.length, bNumCols = b[0].length,
+            m = new Array(aNumRows);  // initialize array of rows
+            for (var r = 0; r < aNumRows; ++r) {
+                m[r] = new Array(bNumCols); // initialize the current row
+                for (var c = 0; c < bNumCols; ++c) {
+                    m[r][c] = 0;             // initialize the current cell
+                    for (var i = 0; i < aNumCols; ++i) {
+                        m[r][c] += a[r][i] * b[i][c];
+                    }
+                }
+            }
+            return m;
+        }
+
+        function display(m) {
+            for (var r = 0; r < m.length; ++r) {
+                document.write('&nbsp;&nbsp;'+m[r].join(' ')+'<br />');
+            }
+        }
+
+    document.write("<br/>");
+    document.write('matrix a:<br />');
+    display(mA);
+    document.write('matrix b:<br />');
+    display(mB);
+    document.write('a * b =<br />');
+    display(multiply(mA, mB));
+
+    </script>
+
+</html> 
