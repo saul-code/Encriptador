@@ -5,19 +5,19 @@
     <title>Encriptador</title>
 
     <head></head>
-    <br/>
 
     <body>
         <div class="encabezado">
             <img id="logo" src="fotos/logo.svg.png">
         </div>
+        <form name="myForm" onsubmite="return false">
+            <input id="form" type="text" placeholder="Ingrese el texto aqui"><br/>
 
-        <input id="form" type="text" placeholder="Ingrese el texto aqui"><br/>
-
-        <div class="botones">
-            <button id="encode">Encriptar</button>
-            <button id="decode">Desencriptar</button>
-        </div>
+        </form>
+            <div class="botones">
+                <button id="encode"  >Encriptar</button>
+                <button id="decode"  >Desencriptar</button>
+            </div>
 
         <div class="box">
             <img id="foto" src="fotos/foto.svg">
@@ -29,9 +29,52 @@
     </body>
 
     <script>
-        var mA = [[1,0,0],[2,1,0],[1,1,1]];
+        const llave = [[1,0,0],[2,1,0],[1,1,1]];
         var mB = [[6],[14],[14]];
-        
+        var entrada;
+        let btnEncode =document.getElementById('encode');
+        let btnDecode = document.getElementById('decode');
+        alert("a".charCodeAt(0));
+
+        //Funcion codificar
+        btnEncode.onclick= function(){
+            entrada =document.getElementById('form').value;
+            let entradaArray= entrada.split('');
+            let entradaVecotres = vectoresMensaje(entradaArray);
+            console.log(entradaVecotres);
+        }
+
+        function codifica(mensajevectores){
+            let salidaVectores = [];
+            
+
+        }
+
+        //Funcion decodificar
+        btnDecode.onclick = decodificar;
+       
+        function decodificar(){
+                console.log(entrada);
+        }
+        function vectoresMensaje(entrada){
+            let vectores = [];
+            if(entrada.length%3 != 0 ){
+                while(entrada.length%3 != 0){
+                    entrada.push(0);
+                }
+            }else{
+                var numVec = entrada.length/3;
+                for(var a =0,m=0;m<numVec;m++,a+=3){
+                    vectores[m]=[];
+                    vectores[m].push(entrada[a]);
+                    vectores[m].push(entrada[a+1]);
+                    vectores[m].push(entrada[a+2]);
+
+                }
+            }
+            return vectores;
+
+        }
         function multiply(a, b) {
             var aNumRows = a.length, aNumCols = a[0].length,bNumRows = b.length, bNumCols = b[0].length,
             m = new Array(aNumRows);  // initialize array of rows
@@ -54,12 +97,12 @@
         }
 
     /*document.write("<br/>");
-    document.write('matrix a:<br />');
+    document.write('matrix a:<br />'); w
     display(mA);
     document.write('matrix b:<br />');
     display(mB);
     document.write('a * b =<br />');
-    display(multiply(mA, mB));*/ 
+    display(multiply(mA, mB));*/
 
     </script>
 
