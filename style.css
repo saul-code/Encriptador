@@ -1,15 +1,28 @@
 body {
     background: #f0ffff ;
 }
-h2 {
+h3 {
+    text-align: center;
+}
+p{
+    text-align: center;
 }
 
+.encabezado{
+    text-align: left;
+    margin: 20px;
+    padding: 10px;
+}
+#logo {
+    width: 5%;
+}
 input{
-    margin: 10px;
+    border: none;
+    margin: 200px;
     padding: 10px;
     width: 200px;
 }
-#texto{
+#form{
     background-color: #f0ffff;
     width: 577px;
     height: 48px;
@@ -19,7 +32,21 @@ input{
     font-size: 32px;
     line-height: 150%;
 }
+.botones{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
 
+    position: absolute;
+    width: 680px;
+    height: 67px;
+    left: 170px;
+    top: 800px;
+
+
+}
 button {
     align-items: flex-start;
     background: #0A3871;
@@ -33,6 +60,27 @@ button {
     width: 328px;
     height: 67px;
 }
-#logo {
-    width: 4%;
+.box{
+    position: absolute;
+    width: 400px;
+    height: 900px;
+    left: 1000px;
+    top: 20px;
+    background: #ebefef;
+    box-shadow: 0px 24px 32px -8px;
+    border-radius: 32px;
+}
+#foto{
+    position: relative;
+    padding: 50px;
+    margin: 10px;
+    margin-top: 50%;
+    margin-bottom: 5px;
+    width: 70%;
+}
+.mensaje{
+    align-items:center;
+    padding: 0px;
+    margin: 10px;
+
 }
