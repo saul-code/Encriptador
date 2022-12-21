@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lan="es">
     <link rel="stylesheet" href="style.css">
-    <title>Encriptador</title>
-    <head><img id="logo" src="fotos/logo.svg.png"></head>
 
-    <h1 id = "encabezado">Encriptador</h1>
-    <input id="texto" type="text" placeholder="Ingrese el texto aqui">
+    <title>Encriptador</title>
+
+    <head></head>
     <br/>
+
     <body>
-        <button id="encode">Encriptar</button>
-        <button id="decode">Desencriptar</button>
+        <div class="encabezado">
+            <img id="logo" src="fotos/logo.svg.png">
+        </div>
+
+        <input id="form" type="text" placeholder="Ingrese el texto aqui"><br/>
+
+        <div class="botones">
+            <button id="encode">Encriptar</button>
+            <button id="decode">Desencriptar</button>
+        </div>
+
+        <div class="box">
+            <img id="foto" src="fotos/foto.svg">
+            <div class="mensaje">
+                <algin><h3>Ningun mensaje fue encontrado</h3></algin><br/>
+                <p>ingrese el texto que desees encriptar o desencriptar</p>
+            </div>
+        </div>
     </body>
 
     <script>
@@ -37,13 +53,13 @@
             }
         }
 
-    document.write("<br/>");
+    /*document.write("<br/>");
     document.write('matrix a:<br />');
     display(mA);
     document.write('matrix b:<br />');
     display(mB);
     document.write('a * b =<br />');
-    display(multiply(mA, mB));
+    display(multiply(mA, mB));*/ 
 
     </script>
 
