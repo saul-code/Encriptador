@@ -22,7 +22,7 @@
                 <img id="alerta" src="fotos/Vector!.svg">
                 <p>Solo letras minúsculas y sin acentos</p>
             </div>
-            <button id="encode"  >Encriptar</button>
+            <button id="encode" onclick="desaparece()" >Encriptar</button>
             <button id="decode"  >Desencriptar</button>
         </div>
 
@@ -34,54 +34,98 @@
             </div>
         </div>
     </body>
-
+ 
     <script>
         const llave = [[1,0,0],[2,1,0],[1,1,1]];
         var mB = [[6],[14],[14]];
         var entrada;
         let btnEncode =document.getElementById('encode');
         let btnDecode = document.getElementById('decode');
-        alert("a".charCodeAt(0));
-
-        //Funcion codificar
-        btnEncode.onclick= function(){
-            entrada =document.getElementById('form').value;
-            let entradaArray= entrada.split('');
-            let entradaVecotres = vectoresMensaje(entradaArray);
-            console.log(entradaVecotres);
-        }
-
-        function codifica(mensajevectores){
-            let salidaVectores = [];
-            
-
-        }
-
-        //Funcion decodificar
         btnDecode.onclick = decodificar;
-       
-        function decodificar(){
-                console.log(entrada);
+
+        //Se le pasa a al variable btnEncode la funcion para codificar el mensaje
+        btnEncode.onclick= function(){
+            //Desaparece la imagen en el box
+            desaparece();
+            //entrada del input
+            entrada =document.getElementById('form').value;
+            //junta la entrada y lo transforma en un arreglo
+            let entradaArray= entrada.split('');
+
+            let entradaVecotres = vectoresMensaje(entradaArray);
+            codifica(entradaVecotres);
         }
+
+        /**
+         * Separa el arreglo de entrada en una matriz de nx3 con n la longitud del arreglo 
+         * entre 3 y si no es divisible entre 3 se agrega celdas vacias para que sea divisble
+         * @params entrada
+         * @return arreglo de numeros. 
+         **/
         function vectoresMensaje(entrada){
             let vectores = [];
-            if(entrada.length%3 != 0 ){
-                while(entrada.length%3 != 0){
-                    entrada.push(0);
-                }
-            }else{
+            if(entrada.length%3 == 0 ){
                 var numVec = entrada.length/3;
                 for(var a =0,m=0;m<numVec;m++,a+=3){
                     vectores[m]=[];
-                    vectores[m].push(entrada[a]);
-                    vectores[m].push(entrada[a+1]);
-                    vectores[m].push(entrada[a+2]);
-
+                    vectores[m].push(entrada[a].charCodeAt(0));
+                    vectores[m].push(entrada[a+1].charCodeAt(0));
+                    vectores[m].push(entrada[a+2].charCodeAt(0));
+                }
+            }else{
+                var numVec = Math.floor(entrada.length/3);
+                for(var a =0,m=0;m<numVec;m++,a+=3){
+                    vectores[m]=[];
+                    vectores[m].push(entrada[a].charCodeAt(0));
+                    vectores[m].push(entrada[a+1].charCodeAt(0));
+                    vectores[m].push(entrada[a+2].charCodeAt(0));
+                }
+                var residuo = entrada.length%3;
+                if ( residuo == 2){
+                    vectores[numVec] = [];
+                    vectores[numVec].push(entrada[(numVec*3)].charCodeAt(0))
+                    vectores[numVec].push(entrada[(numVec*3)+1].charCodeAt(0))
+                    vectores[numVec].push(' '.charCodeAt(0));
+                }else {
+                    vectores[numVec] = [];
+                    vectores[numVec].push(entrada[(numVec*3)].charCodeAt(0))
+                    vectores[numVec].push(' '.charCodeAt(0));
+                    vectores[numVec].push(' '.charCodeAt(0));
                 }
             }
             return vectores;
 
         }
+
+        function codifica(mensajevectores){
+            let salidaVectores = [];
+            for(var i =0,a=0; i<mensajevectores.length; a+=3,i++){
+                let vectorColumna = [[],[],[]];
+                vectorColumna[0][0] =mensajevectores[i][0];
+                vectorColumna[1][0] =mensajevectores[i][1];
+                vectorColumna[2][0] =mensajevectores[i][2];
+
+                let vectorColumna2 = multiply(llave,vectorColumna);
+                salidaVectores[a] =  vectorColumna2[0][0];
+                salidaVectores[a+1] = vectorColumna2[1][0];
+                salidaVectores[a+2] = vectorColumna2[2][0];
+            }
+            console.log(salidaVectores);
+            return salidaVectores;
+        }
+
+        //Funcion decodificar
+       
+        function decodificar(){
+                console.log(entrada);
+        }
+
+        //Desaparecer
+        function desaparece(){
+            let x=document.getElementById('foto');
+            x.style.display = 'none';
+        }
+
         function multiply(a, b) {
             var aNumRows = a.length, aNumCols = a[0].length,bNumRows = b.length, bNumCols = b[0].length,
             m = new Array(aNumRows);  // initialize array of rows
@@ -103,13 +147,13 @@
             }
         }
 
-    /*document.write("<br/>");
-    document.write('matrix a:<br />'); w
-    display(mA);
+    document.write("<br/>");
+    document.write('matrix a:<br />'); 
+    display(llave);
     document.write('matrix b:<br />');
     display(mB);
     document.write('a * b =<br />');
-    display(multiply(mA, mB));*/
+    display(multiply(llave, mB)); 
 
     </script>
 
