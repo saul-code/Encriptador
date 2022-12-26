@@ -34,8 +34,8 @@
             </div>
             <div style="align-items: center; display: none;" id="resultadodiv">
                 <h2 style="text-align:center;">Resultado</h2>
-                <label id='resultado' style="text-align: center;"></label>
-                <button id="copiar">copiar</button>
+                <label id='resultado'></label>
+                <button id="copiar" onclick="copiarPortapapeles()">copiar</button>
             </div>
         </div>
     </body>
@@ -64,7 +64,17 @@
 
             let stringResultado = codifica(entradaVecotres).join(' ');
             resultado.innerHTML = stringResultado; 
-            console.log(resultado);
+        }
+
+        function copiarPortapapeles(){
+            var aux = document.createElement("input");
+            aux.setAttribute("value",document.getElementById("resultado").innerHTML);
+
+            document.body.appendChild(aux);
+            aux.select();
+
+            document.execCommand("copy");
+            document.body.removeChild(aux);
         }
 
         /**
@@ -125,7 +135,6 @@
         }
 
         //Funcion decodificar
-       
         function decodificar(){
         }
 
