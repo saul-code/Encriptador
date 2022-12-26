@@ -28,23 +28,29 @@
 
         <div class="box">
             <img id="foto" src="fotos/foto.svg">
-            <div class="mensaje">
+            <div id = "mensaje" class="mensaje">
                 <algin><h3>Ningun mensaje fue encontrado</h3></algin>
                 <p>ingrese el texto que desees encriptar o desencriptar</p>
+            </div>
+            <div style="align-items: center; display: none; margin: 10px;" id="resultado">
+                <h2>Resultado</h2>
+                <label id="resultado"></label>
             </div>
         </div>
     </body>
  
     <script>
         const llave = [[1,0,0],[2,1,0],[1,1,1]];
-        var mB = [[6],[14],[14]];
         var entrada;
         let btnEncode =document.getElementById('encode');
         let btnDecode = document.getElementById('decode');
+        let resultado = document.getElementById('resultado');
+
+        btnEncode.onclick = encripta;
         btnDecode.onclick = decodificar;
 
         //Se le pasa a al variable btnEncode la funcion para codificar el mensaje
-        btnEncode.onclick= function(){
+        function encripta(){
             //Desaparece la imagen en el box
             desaparece();
             //entrada del input
@@ -53,7 +59,11 @@
             let entradaArray= entrada.split('');
 
             let entradaVecotres = vectoresMensaje(entradaArray);
-            codifica(entradaVecotres);
+            document.getElementById('resultado').style.display='block';
+
+            let stringResultado = codifica(entradaVecotres).join(' ');
+            resultado.innerHTML = stringResultado;
+            console.log(resultado);
         }
 
         /**
@@ -68,29 +78,29 @@
                 var numVec = entrada.length/3;
                 for(var a =0,m=0;m<numVec;m++,a+=3){
                     vectores[m]=[];
-                    vectores[m].push(entrada[a].charCodeAt(0));
-                    vectores[m].push(entrada[a+1].charCodeAt(0));
-                    vectores[m].push(entrada[a+2].charCodeAt(0));
+                    vectores[m].push(toChar(entrada[a]));
+                    vectores[m].push(toChar(entrada[a+1]));
+                    vectores[m].push(toChar(entrada[a+2]));
                 }
             }else{
                 var numVec = Math.floor(entrada.length/3);
                 for(var a =0,m=0;m<numVec;m++,a+=3){
                     vectores[m]=[];
-                    vectores[m].push(entrada[a].charCodeAt(0));
-                    vectores[m].push(entrada[a+1].charCodeAt(0));
-                    vectores[m].push(entrada[a+2].charCodeAt(0));
+                    vectores[m].push(toChar(entrada[a]));
+                    vectores[m].push(toChar(entrada[a+1]));
+                    vectores[m].push(toChar(entrada[a+2]));
                 }
                 var residuo = entrada.length%3;
                 if ( residuo == 2){
                     vectores[numVec] = [];
-                    vectores[numVec].push(entrada[(numVec*3)].charCodeAt(0))
-                    vectores[numVec].push(entrada[(numVec*3)+1].charCodeAt(0))
-                    vectores[numVec].push(' '.charCodeAt(0));
+                    vectores[numVec].push(toChar(entrada[(numVec*3)]));
+                    vectores[numVec].push(toChar(entrada[(numVec*3)+1]));
+                    vectores[numVec].push(toChar(' '));
                 }else {
                     vectores[numVec] = [];
-                    vectores[numVec].push(entrada[(numVec*3)].charCodeAt(0))
-                    vectores[numVec].push(' '.charCodeAt(0));
-                    vectores[numVec].push(' '.charCodeAt(0));
+                    vectores[numVec].push(toChar(entrada[(numVec*3)]));
+                    vectores[numVec].push(toChar(' '));
+                    vectores[numVec].push(toChar(' '));
                 }
             }
             return vectores;
@@ -110,20 +120,18 @@
                 salidaVectores[a+1] = vectorColumna2[1][0];
                 salidaVectores[a+2] = vectorColumna2[2][0];
             }
-            console.log(salidaVectores);
             return salidaVectores;
         }
 
         //Funcion decodificar
        
         function decodificar(){
-                console.log(entrada);
         }
 
         //Desaparecer
         function desaparece(){
-            let x=document.getElementById('foto');
-            x.style.display = 'none';
+            document.getElementById('foto').style.display='none';
+            document.getElementById('mensaje').style.display = 'none';
         }
 
         function multiply(a, b) {
@@ -141,19 +149,15 @@
             return m;
         }
 
-        function display(m) {
-            for (var r = 0; r < m.length; ++r) {
-                document.write('&nbsp;&nbsp;'+m[r].join(' ')+'<br />');
+        function toChar(caracter){ 
+            let diccionarios = {
+                ' ': 0,'d':4,'h':8,'l':12,'o':16,'s':20,'w':24,
+                'a': 1,'e':5,'i':9,'m':13,'p':17,'t':21,'x':25,
+                'b': 2,'f':6,'j':10,'n': 14,'q':18,'u':22,'y':26,
+                'c': 3,'g':7,'k':11,'ñ': 15,'r':19,'v':23,'z':27
             }
+            return diccionarios[caracter];
         }
-
-    document.write("<br/>");
-    document.write('matrix a:<br />'); 
-    display(llave);
-    document.write('matrix b:<br />');
-    display(mB);
-    document.write('a * b =<br />');
-    display(multiply(llave, mB)); 
 
     </script>
 
