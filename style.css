@@ -87,6 +87,8 @@ p{
     background: #ebefef;
     box-shadow: 0px 24px 32px -8px;
     border-radius: 32px;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
 }
 #foto{
     position: relative;
@@ -102,4 +104,21 @@ p{
     padding: 0px;
     margin: 10px;
 
+}
+#resultadodiv{
+    position: relative;
+    padding: 50px;
+    margin-top: 50%;
+    height: 80%;
+}
+#resultadodiv button{
+    background: #D8DFE8;
+    border: 1px solid #0A3871;
+    color: #0A3871;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 300px;
+    height: 67px;
+    margin-top:90%;
 }

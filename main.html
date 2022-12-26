@@ -32,9 +32,10 @@
                 <algin><h3>Ningun mensaje fue encontrado</h3></algin>
                 <p>ingrese el texto que desees encriptar o desencriptar</p>
             </div>
-            <div style="align-items: center; display: none; margin: 10px;" id="resultado">
-                <h2>Resultado</h2>
-                <label id="resultado"></label>
+            <div style="align-items: center; display: none;" id="resultadodiv">
+                <h2 style="text-align:center;">Resultado</h2>
+                <label id='resultado' style="text-align: center;"></label>
+                <button id="copiar">copiar</button>
             </div>
         </div>
     </body>
@@ -59,10 +60,10 @@
             let entradaArray= entrada.split('');
 
             let entradaVecotres = vectoresMensaje(entradaArray);
-            document.getElementById('resultado').style.display='block';
+            document.getElementById('resultadodiv').style.display='block';
 
             let stringResultado = codifica(entradaVecotres).join(' ');
-            resultado.innerHTML = stringResultado;
+            resultado.innerHTML = stringResultado; 
             console.log(resultado);
         }
 
