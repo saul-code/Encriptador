@@ -47,7 +47,7 @@ p{
 .header {
     grid-area: header;
     display: flex;
-    width: 50%;
+    width: 55%;
     gap: 10px;
     font-size: 12px;
     line-height: 0%;
