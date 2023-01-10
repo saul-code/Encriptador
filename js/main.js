@@ -115,8 +115,8 @@ function decodificar(entrada){
         salidaVectores[a+2] = vectorColumna2[2][0];
     }
     for(var i =0; i < salidaVectores.length; i++){
+        console.log(intToChar(salidaVectores[i]));
         salidaVectores[i] = intToChar(salidaVectores[i]);
-        if(salidaVectores[i] == -1) throw 'No es un numero'; 
     }
     return salidaVectores;
 
@@ -193,6 +193,12 @@ function copiarPortapapeles(){
 
     document.execCommand("copy");
     document.body.removeChild(aux);
+
+    document.getElementById('alert').style.display='block';
+    setTimeout(function(){
+        document.getElementById('alert').style.display='none';
+        console.log("hola");
+    },2000);
 }
 
 /**
@@ -227,6 +233,7 @@ function intToChar(entero){
         11:'k', 12:'l',13:'m',14:'n',15:'ñ',16:'o',17:'p',18:'q',19:'r',20:'s',
         21:'t',22:'u',23:'v',24:'w',25:'x',26:'y',27:'z'
     }
+    if(diccionarios[entero]=== undefined) return diccionarios[Math.random()*20];
     return diccionarios[entero];
 }
 
