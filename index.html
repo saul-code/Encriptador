@@ -12,42 +12,52 @@
             <img id="logo" src="fotos/logo.svg.png">
         </header>
 
-        <div class="primer-cuadrante">
-            <div class="myForm">
-                <form >
-                    <input id="form" type="text" placeholder="Ingrese el texto aqui"><br/>
-                </form>
-            </div>
-
-            <div class="botones">
-                <div class="header">
-                    <img id="alerta" src="fotos/Vector!.svg">
-                    <p>Solo letras minúsculas, sin acentos y sin espacios al final</p>
+        <div class="contenedor">
+            <div class="primer-cuadrante">
+                <div class="myForm">
+                    <form >
+                        <input id="form" type="text" placeholder="Ingrese el texto aqui"><br/>
+                    </form>
                 </div>
-                <button id="encode" onclick="desaparece()" >Encriptar</button>
-                <button id="decode"  >Desencriptar</button>
-            </div>
-        </div>
 
-        <div class="box">
-            <img id="foto" src="fotos/foto.svg">
-            <div id = "mensaje" class="mensaje">
-                <algin><h3>Ningun mensaje fue encontrado</h3></algin>
-                <p>ingrese el texto que desees encriptar o desencriptar</p>
-            </div>
-            <div style="align-items: center; display: none;" id="resultadodiv">
-                <h2 style="text-align:center;">Resultado</h2>
-                <label id='resultado'></label>
-                <button id="copiar" onclick="copiarPortapapeles()">copiar</button>
-                <div id="alert" class="alert info" style="display: none;">
-                    <strong>Copiado,</strong> mensaje copiado.
+                <div class="botones">
+                    <div class="header">
+                        <img id="alerta" src="fotos/Vector!.svg">
+                        <p>Solo letras minúsculas, sin acentos y sin espacios al final</p>
+                    </div>
+                    <button id="encode" onclick="desaparece()" >Encriptar</button>
+                    <button id="decode"  >Desencriptar</button>
                 </div>
             </div>
 
-        </div>
+            <div class="box">
+                <img id="foto" src="fotos/foto.svg">
+                <div id = "mensaje" class="mensaje">
+                    <algin><h3>Ningun mensaje fue encontrado</h3></algin>
+                    <p>ingrese el texto que desees encriptar o desencriptar</p>
+                </div>
+                <div style="align-items: center; display: none;" id="resultadodiv">
+                    <h2 style="text-align:center;">Resultado</h2>
+                    <label id='resultado'></label>
+                    <button id="copiar" onclick="copiarPortapapeles()">copiar</button>
+                    <div id="alert" class="alert info" style="display: none;">
+                        <strong>Copiado,</strong> mensaje copiado.
+                    </div>
+                </div>
 
+            </div>
+        </div>
 
     </body>
     <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            var height = $(window).height();
+
+            $('#box').height(height);
+        });
+    </script>
+
 
 </html> 

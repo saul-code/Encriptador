@@ -15,6 +15,7 @@ let resultado = document.getElementById('resultado');
 btnEncode.onclick = encripta;
 btnDecode.onclick = desencriptar;
 
+
 /**
  * Función para encriptar el mensaje 
  */

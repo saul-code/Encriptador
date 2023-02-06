@@ -10,29 +10,32 @@ p{
     text-align: center;
 }
 header {
-    margin: 0 0 10px 0;
     padding: 0 0 0 0;
-    padding-top: 3% ;
+    padding-top: 1% ;
     width: 100%;
-    height: 100px;
+    height: 90px;
     display: inline-flex;
     align-items: center;
 }
 header img {
-    width: 7%;
+    width: 6%;
     padding-left: 3%;
+}
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .primer-cuadrante{
     margin: 0;
-    width: 70%;
+    width: 60%;
     height: auto;
 }
 
 .myForm{
-    display: grid;
     margin:  10px;
-    padding: 10% 0 10% 10%;
-    width: 70%;
+    padding: 20% 0 10% 10%;
+    width: 80%;
 
 }
 #form{
@@ -47,10 +50,10 @@ header img {
     grid-template-areas:'header header header header header header'
     'bt1 bt1 bt1 bt2 bt2 bt2';
     gap: 5%;
-    width: 70%;
+    width: 80%;
     height: auto;
     padding-left: 10%;
-    padding-top:10%;
+    padding-top:12%;
 }
 .header {
     grid-area: header;
@@ -92,38 +95,33 @@ header img {
 }
 
 .box{
-    position: absolute;
-    width: 400px;
-    height: 900px;
-    left: 1000px;
-    top: 20px;
+    width: 36%;
+    height: auto;
+    margin: 0 2% 0 0;
     background: #ebefef;
     box-shadow: 0px 24px 32px -8px;
     border-radius: 32px;
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
-    display: none;
 }
 #foto{
     position: relative;
-    padding: 50px;
-    margin: 10px;
-    margin-top: 50%;
-    margin-bottom: 5px;
-    width: 70%;
+    padding: 10% 20% 2% 20%;
+    margin: 5%;
+    margin-top: 8%;
+    margin-bottom: 2px;
+    width: 50%;
 }
 .mensaje{
-    align-items:center;
-    display: block;
-    padding: 0px;
-    margin: 10px;
+    padding: 2%;
+    margin: 3%;
 
 }
 #resultadodiv{
     position: relative;
-    padding: 50px;
-    margin-top: 50%;
-    height: 65%;
+    padding: 15%;
+    margin-top: 15%;
+    text-align: inherit;
 }
 #resultadodiv button{
     background: #D8DFE8;
