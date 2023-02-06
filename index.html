@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lan="es">
-    <link rel="stylesheet" href="style.css">
-
-    <title>Encriptador</title>
-
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset = "UTF-8">
+        <title>Encriptador</title>
+    </head>
 
     <body>
-        <div class="encabezado">
+
+        <header>
             <img id="logo" src="fotos/logo.svg.png">
-        </div>
+        </header>
 
-        <div class="myForm">
-            <form >
-                <input id="form" type="text" placeholder="Ingrese el texto aqui"><br/>
-            </form>
-        </div>
-
-        <div class="botones">
-            <div class="header">
-                <img id="alerta" src="fotos/Vector!.svg">
-                <p>Solo letras minúsculas, sin acentos y sin espacios al final</p>
+        <div class="primer-cuadrante">
+            <div class="myForm">
+                <form >
+                    <input id="form" type="text" placeholder="Ingrese el texto aqui"><br/>
+                </form>
             </div>
-            <button id="encode" onclick="desaparece()" >Encriptar</button>
-            <button id="decode"  >Desencriptar</button>
+
+            <div class="botones">
+                <div class="header">
+                    <img id="alerta" src="fotos/Vector!.svg">
+                    <p>Solo letras minúsculas, sin acentos y sin espacios al final</p>
+                </div>
+                <button id="encode" onclick="desaparece()" >Encriptar</button>
+                <button id="decode"  >Desencriptar</button>
+            </div>
         </div>
 
         <div class="box">

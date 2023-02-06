@@ -1,5 +1,7 @@
 body {
     background: #f0ffff ;
+    margin: 0;
+    padding: 0;
 }
 h3 {
     text-align: center;
@@ -7,26 +9,36 @@ h3 {
 p{
     text-align: center;
 }
+header {
+    margin: 0 0 10px 0;
+    padding: 0 0 0 0;
+    padding-top: 3% ;
+    width: 100%;
+    height: 100px;
+    display: inline-flex;
+    align-items: center;
+}
+header img {
+    width: 7%;
+    padding-left: 3%;
+}
+.primer-cuadrante{
+    margin: 0;
+    width: 70%;
+    height: auto;
+}
 
-.encabezado{
-    margin: 20px;
-    padding: 10px;
-    width: 50%;
-}
-#logo {
-    width: 15%;
-    padding-left: 10px;
-    margin: 10px;
-}
 .myForm{
-    margin:  200px;
-    padding: 10px;
+    display: grid;
+    margin:  10px;
+    padding: 10% 0 10% 10%;
+    width: 70%;
 
 }
 #form{
     background-color: #f0ffff;
     border: none;
-    width: 577px;
+    width: 100%;
     font-size: 32px;
     line-height: 150%;
 }
@@ -34,15 +46,11 @@ p{
     display: grid;
     grid-template-areas:'header header header header header header'
     'bt1 bt1 bt1 bt2 bt2 bt2';
-    gap: 10px;
-    padding: 10px;
-
-    position: absolute;
-    width: 680px;
-    height: 67px;
-    left: 170px;
-    top: 760px;
-
+    gap: 5%;
+    width: 70%;
+    height: auto;
+    padding-left: 10%;
+    padding-top:10%;
 }
 .header {
     grid-area: header;
@@ -55,7 +63,7 @@ p{
     opacity: .8;
 }
 .header img{
-    width: 5%;
+    width: 3%;
 }
 #encode{
     grid-area: bt1;
@@ -73,14 +81,14 @@ p{
     border-radius: 24px;
     font-size: 16px;
     font-weight: bold;
-    margin: 10px;
-    padding: 24px;
-    width: 328px;
+    width: auto;
     height: 67px;
 }
-.botones button:hover{
-    background: #0A3897;
-     
+#encode:hover{
+    background: #0A3871D4;
+}
+#decode:hover{
+    background: #E1ECFF;
 }
 
 .box{
@@ -94,6 +102,7 @@ p{
     border-radius: 32px;
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    display: none;
 }
 #foto{
     position: relative;
