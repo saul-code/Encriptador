@@ -7,17 +7,18 @@ Así se ve la página:
 
 ## Funcionamiento
 
-La forma de encriptar el mensaje hace uso de Álgebra Lineal utilizando una propiedad de las matrices. Como sabemos en Álgebra Lineal el espacio vectorial de matrices de $m n$ en $\mathbb(R) $ la multiplicación de matrices no es conmutativa es decir $a,b$ matrices de $m x n$ en $\mathbb(R)$  
+La forma de encriptar el mensaje hace uso de Álgebra Lineal utilizando una propiedad de las matrices. Como sabemos en Álgebra Lineal el espacio vectorial de matrices de $A_m B_n$ en $\mathbb R$ la multiplicación de matrices no es conmutativa es decir:
 
-$a * b \not= b * a$ 
+$A_m * B_n \not= B_n * A_m$ 
 
-Y esto pasa por la forma peculiar como multiplicamos matrices, pero sabemos que existen matrices invertibles es decir que si se cumple la igualdad de arriba son las matrices invertibles y no todas son matrices invertibles, existen ciertos criterios poder invertir una matriz y un método para invertirla.
+Y esto pasa por la forma peculiar de multiplicar matrices, pero sabemos que existen matrices invertibles es decir conmuta la multiplicación solo pasa con  las matrices invertibles y no todas son matrices invertibles, existen ciertos criterios para poder invertir una matriz y un método para invertirla.
 
 Sabiendo esto, es claro ver que  si tomamos una matriz invertible  sucede que: 
 
-$a * a^{-1} = I, \hspace{.5cm} a * a ^{-1} * b = a^{-1} * a * b = a^{-1}*(a*b)=b$
+$a * a^{-1} = I,  a * a ^{-1} * b = a^{-1} * a * b = a^{-1}*(a*b)=b$
 
-Ahora usando esta propiedad encriptaremos un mensaje convierto la cadena de texto en numeros asignando a cada caracter un numero unico. Después tomaremos cada 3 elementos de la cadena y los haremos vectores columnas para multiplicar nuestra matriz invertible por un vector columna y si faltan espacios lo llenamos con ceros y ese sera nuestro mensaje encriptado. 
+Ahora usando esta propiedad encriptaremos un mensaje convirtiendo la cadena de texto en numeros asignando a cada caracter un número único. Después tomaremos cada 3 elementos de la cadena y los haremos vectores columnas para multiplicar nuestra matriz invertible por un vector columna y si faltan espacios lo llenamos con ceros y ese sera nuestro mensaje encriptado. 
+$A_m * B_n$
 
 ![encriptado](fotos/encriptar.png)
 
